@@ -1,13 +1,13 @@
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 
-import MainLayout from "./layout/MainLayout";
+import MainLayout from "./layout/MainLayout.jsx";
 import ProtectedOnlyAuth from "./layout/ProtectedOnlyAuth.jsx";
 import ProtectedOnlyGuest from "./layout/ProtectedOnlyGuest.jsx";
-import AddEvent from "./pages/AddEvent";
-import EventDetail from "./pages/EventDetail";
-import Home from "./pages/Home";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
+import AddEvent from "./pages/AddEvent.jsx";
+import EventDetail from "./pages/EventDetail.jsx";
+import Home from "./pages/Home.jsx";
+import SignIn from "./pages/SignIn.jsx";
+import SignUp from "./pages/SignUp.jsx";
 
 function App() {
   return (

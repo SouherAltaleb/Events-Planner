@@ -14,10 +14,6 @@ const SignUp = () => {
     <div className="event-card">
       <h2 className="event-title">here is Sign Up</h2>
       <form method="post" onSubmit={handleSubmit}>
-        <label htmlFor="name" className="block">
-          Name
-        </label>
-        <input id="name" name="name" type="text" className="input" />
         <label htmlFor="email" className="block">
           Email
         </label>

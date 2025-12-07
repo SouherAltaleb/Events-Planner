@@ -19,14 +19,22 @@ const Header = () => {
         <Link to="/signup">Sign Up |</Link>
         <Link to="/addEvent">Add Event |</Link>
         {user && user.isActive && (
-          <button type="button" onClick={logoutUser}>
-            Logout |
-          </button>
-        )}
-        {user && user.isActive && (
-          <button type="button" onClick={() => deleteUser(user.id)}>
-            Delete account |
-          </button>
+          <>
+            <button
+              className="cursor-pointer"
+              type="button"
+              onClick={logoutUser}
+            >
+              Logout |
+            </button>
+            <button
+              className="cursor-pointer"
+              type="button"
+              onClick={() => deleteUser(user.id)}
+            >
+              Delete account |
+            </button>
+          </>
         )}
       </nav>
     </div>
