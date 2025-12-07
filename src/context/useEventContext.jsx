@@ -8,6 +8,7 @@ import {
   setEventToDB,
   signInUserToDB,
   signUpUserToDB,
+  updateUserToDB,
 } from "../api/api.js";
 
 export const EventContext = createContext();
@@ -25,7 +26,6 @@ const EventContextProvider = ({ children }) => {
   const [events, setEvents] = useState([]);
   const signUpUser = (e) => {
     const newUser = {
-      name: e.target.elements.name.value,
       email: e.target.elements.email.value,
       password: e.target.elements.password.value,
     };
@@ -81,6 +81,25 @@ const EventContextProvider = ({ children }) => {
       });
   };
 
+  const updateUser = (e, id) => {
+    const newUser = {
+      name: e.target.elements.name.value,
+      email: e.target.elements.email.value,
+      password: e.target.elements.password.value,
+      isActive: true,
+    };
+    updateUserToDB(newUser, id)
+      .then((updateUserData) => {
+        const user = { ...updateUserData };
+        localStorage.setItem("user", JSON.stringify(user));
+        setUser(user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   const addEvent = (e) => {
     //console.log(e.target);
     //console.log("add event");
@@ -110,6 +129,7 @@ const EventContextProvider = ({ children }) => {
         signInUser,
         logoutUser,
         deleteUser,
+        updateUser,
       }}
     >
       {children}

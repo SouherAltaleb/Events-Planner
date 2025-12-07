@@ -70,3 +70,27 @@ export const deleteUserFromDB = async (id) => {
     console.error("Error:", error);
   }
 };
+
+export const updateUserToDB = async (user, id) => {
+  const url = `http://localhost:3001/api/users/${id}`;
+  const token = localStorage.getItem("token");
+  const storedToken = token ? JSON.parse(token) : null;
+  const userData = user;
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token && { Authorization: `Bearer ${storedToken}` }),
+      },
+      body: JSON.stringify(userData),
+    });
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
