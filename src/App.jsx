@@ -1,8 +1,8 @@
-// import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 
-import EventList from "./components/EventList";
 import MainLayout from "./layout/MainLayout";
+import ProtectedOnlyAuth from "./layout/ProtectedOnlyAuth.jsx";
+import ProtectedOnlyGuest from "./layout/ProtectedOnlyGuest.jsx";
 import AddEvent from "./pages/AddEvent";
 import EventDetail from "./pages/EventDetail";
 import Home from "./pages/Home";
@@ -14,11 +14,17 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="addEvent" element={<AddEvent />} />
-          <Route path="/eventDetail" element={<EventDetail />} />
+          <Route index element={<Home />} />
+          <Route path="/signin" element={<ProtectedOnlyGuest />}>
+            <Route index element={<SignIn />} />
+          </Route>
+          <Route path="/signup" element={<ProtectedOnlyGuest />}>
+            <Route index element={<SignUp />} />
+          </Route>
+          <Route path="addEvent" element={<ProtectedOnlyAuth />}>
+            <Route index element={<AddEvent />} />
+          </Route>
+          <Route path="event/:slug" element={<EventDetail />} />
         </Route>
       </Routes>
     </>
