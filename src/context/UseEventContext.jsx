@@ -23,7 +23,7 @@ const EventContextProvider = ({ children }) => {
   const storedToken = token ? JSON.parse(token) : null;*/
 
   const [event, setEvent] = useState(null);
-  const [events, setEvents] = useState();
+  const [events, setEvents] = useState(null);
   const signUpUser = (e) => {
     const newUser = {
       email: e.target.elements.email.value,
@@ -100,21 +100,26 @@ const EventContextProvider = ({ children }) => {
       });
   };
 
+  const loadEvents = async () => {
+    try {
+      const eventsFromAPI = await getEventsFromDB();
+      setEvents(eventsFromAPI);
+    } catch (err) {
+      console.error("Failed to load events:", err);
+    }
+  };
+
+  useEffect(() => {
+    loadEvents();
+  }, []);
+
   const addEvent = (e) => {
     //console.log(e.target);
     //console.log("add event");
     //setEventToDB();
     //setEvent();
   };
-  useEffect(() => {
-    const initialize = async () => {
-      //const currentUser = await getUserFromDB();
-      //setUser(currentUser);
-      const eventsFromAPI = await getEventsFromDB();
-      setEvents(eventsFromAPI);
-    };
-    initialize();
-  }, []);
+
   return (
     <EventContext.Provider
       value={{
@@ -130,6 +135,7 @@ const EventContextProvider = ({ children }) => {
         logoutUser,
         deleteUser,
         updateUser,
+        loadEvents,
       }}
     >
       {children}

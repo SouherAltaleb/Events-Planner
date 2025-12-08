@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path="events/:title" element={<EventDetail />} />
           <Route path="/signin" element={<ProtectedOnlyGuest />}>
             <Route index element={<SignIn />} />
           </Route>
@@ -24,7 +25,6 @@ function App() {
           <Route path="addEvent" element={<ProtectedOnlyAuth />}>
             <Route index element={<AddEvent />} />
           </Route>
-          <Route path="event/:slug" element={<EventDetail />} />
         </Route>
       </Routes>
     </>
