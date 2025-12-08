@@ -3,13 +3,13 @@ import { useNavigate } from "react-router";
 
 import {
   deleteUserFromDB,
-  getEventsFromDB,
   //getUserFromDB,
   setEventToDB,
   signInUserToDB,
   signUpUserToDB,
   updateUserToDB,
 } from "../api/api.js";
+import { getEventsFromDB } from "../api/eventApi.js";
 
 export const EventContext = createContext();
 
@@ -23,7 +23,7 @@ const EventContextProvider = ({ children }) => {
   const storedToken = token ? JSON.parse(token) : null;*/
 
   const [event, setEvent] = useState(null);
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState();
   const signUpUser = (e) => {
     const newUser = {
       email: e.target.elements.email.value,
