@@ -1,2 +1,30 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: false;
+}
+:root {
+  --color-primary: #6d2e46;
+  --color-secondary: #a26769;
+  --color-secondary-light: #d5b9b2;
+  --color-hell-rosa: #cebebe;
+  --color-light-beige: #ece2d0;
+}
+body {
+  font-family: "Inter", sans-serif;
+  /* background-color: var(--color-light-beige); */
+  /* ich lasse das Bild zuerst */
+  background-image: url(https://images.pexels.com/photos/9175911/pexels-photo-9175911.jpeg);
+}
+
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+h1 {
+  color: var(--color-primary);
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
