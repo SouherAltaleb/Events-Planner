@@ -9,7 +9,7 @@ const EventForm = () => {
   // state für eingabefelder
   const [formData, setFormData] = useState({
     title: "",
-    desription: "",
+    description: "",
     date: "",
     location: "",
     latitude: "",
@@ -36,9 +36,11 @@ const EventForm = () => {
       </button> */}
 
       {/* LEFT SIDE TEXT */}
-      <div className="w1/3">
-        <h1 className="mb-4 text-5xl font-bold">LOS GEHTS</h1>
-        <h1 className="max-w-96 text-3xl">YOUR NEXT BIG MOMENT STARTS NOW.</h1>
+      <div className="w-1/3">
+        <h1 className="mb-4 text-6xl font-bold">LOS GEHTS</h1>
+        <h1 className="max-w-96 text-4xl leading-12">
+          YOUR NEXT BIG MOMENT STARTS NOW.
+        </h1>
       </div>
       {/* FORM AREA */}
       <form onSubmit={handleSubmit} className="flex w-1/2 flex-col gap-4">
@@ -49,15 +51,15 @@ const EventForm = () => {
           placeholder="title"
           value={formData.title}
           onChange={handleChange}
-          className="input input-border rounded-full bg-white"
+          className="input input-border shadow-2xm w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
         />
         {/* Description */}
         <textarea
           name="description"
           placeholder="Description"
-          value={formData.desription}
+          value={formData.description}
           onChange={handleChange}
-          className="textarea textarea-border h-32 rounded-2xl bg-white"
+          className="textarea textarea-border h-32 w-full rounded-2xl border-(--color-primary) bg-white shadow-md hover:border-2"
         ></textarea>
         {/* Date */}
         <input
@@ -65,7 +67,7 @@ const EventForm = () => {
           name="date"
           value={formData.date}
           onChange={handleChange}
-          className="input input-border rounded-full bg-white"
+          className="input input-border w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
         />
         {/* Location */}
         <input
@@ -74,7 +76,7 @@ const EventForm = () => {
           placeholder="location"
           value={formData.location}
           onChange={handleChange}
-          className="input input-bordered rounded-full bg-white"
+          className="input input-bordered w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
         />
         {/* Latitude */}
         <input
@@ -83,7 +85,7 @@ const EventForm = () => {
           placeholder="latitude"
           value={formData.latitude}
           onChange={handleChange}
-          className="input input-bordered rounded-full bg-white"
+          className="input input-bordered w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
         />
         {/* Longitude */}
         <input
@@ -92,10 +94,13 @@ const EventForm = () => {
           placeholder="longitude"
           value={formData.longitude}
           onChange={handleChange}
-          className="input input-bordered rounded-full bg-white"
+          className="input input-bordered w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
         />
         {/* Button */}
-        <button type="submit" className="btn mt-2 rounded-full text-white">
+        <button
+          type="submit"
+          className="btn mt-2 w-full rounded-full border-0 bg-(--color-primary) text-white shadow-md hover:bg-(--color-secondary)"
+        >
           {" "}
           ADD NEW EVENT
         </button>

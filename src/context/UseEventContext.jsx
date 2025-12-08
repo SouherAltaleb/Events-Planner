@@ -9,7 +9,7 @@ import {
   signUpUserToDB,
   updateUserToDB,
 } from "../api/api.js";
-import { getEventsFromDB } from "../api/eventApi.js";
+import { getEventsFromDB, setEventToDB } from "../api/eventApi.js";
 
 export const EventContext = createContext();
 
@@ -119,6 +119,22 @@ const EventContextProvider = ({ children }) => {
     //setEventToDB();
     //setEvent();
   };
+  // const addEvent = async (newEvent) => {
+  //   try {
+  //     console.log("Event wird gespeichert:", newEvent);
+
+  //     const createdEvent = await setEventToDB(newEvent);
+
+  //     console.log("Event erfolgreich erstellt:", createdEvent);
+
+  //     setEvents((prev) => (prev ? [...prev, createdEvent] : [createdEvent]));
+
+  //     return createdEvent;
+  //   } catch (err) {
+  //     console.error("Fehler beim Erstellen des Events:", err);
+  //     throw err;
+  //   }
+  // };
 
   return (
     <EventContext.Provider
