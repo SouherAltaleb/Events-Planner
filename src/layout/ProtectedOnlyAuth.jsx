@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
-import { EventContext } from "../context/useEventContext.jsx";
+import { EventContext } from "../context/UseEventContext.jsx";
 
 const ProtectedOnlyAuth = () => {
   const { user } = useContext(EventContext);

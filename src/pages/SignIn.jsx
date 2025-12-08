@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { EventContext } from "../context/useEventContext";
+import { EventContext } from "../context/UseEventContext";
 
 const SignIn = () => {
   const { signInUser } = useContext(EventContext);

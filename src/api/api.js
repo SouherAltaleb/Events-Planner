@@ -1,7 +1,3 @@
-export const getEventsFromDB = async () => {
-  return {};
-};
-
 export const getUserFromDB = async () => {
   return null;
 };

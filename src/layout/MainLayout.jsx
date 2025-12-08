@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { EventContext } from "../context/useEventContext";
+import { EventContext } from "../context/UseEventContext";
 
 const MainLayout = () => {
   const { user, events, addEvent, signUpUser, signInUser } =
