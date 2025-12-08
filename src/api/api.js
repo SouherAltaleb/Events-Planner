@@ -1,8 +1,3 @@
-// Events aus der API holen
-export const getEventsFromDB = async () => {
-  return {};
-};
-
 // User aus der API holen
 export const getUserFromDB = async () => {
   return null;
