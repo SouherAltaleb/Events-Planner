@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import {
   deleteUserFromDB,
   //getUserFromDB,
-  setEventToDB,
+  //setEventToDB,
   signInUserToDB,
   signUpUserToDB,
   updateUserToDB,
