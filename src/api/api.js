@@ -3,26 +3,6 @@ export const getUserFromDB = async () => {
   return null;
 };
 
-//  Event in die Datenbank speichern
-export const setEventToDB = async (event) => {
-  const url = "http://localhost:3001/api/events";
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(event),
-    });
-
-    if (!response.ok) {
-      throw new Error(" Error: ${response.status} ${response.statusText}");
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error while creating event", error);
-  }
-};
 // User registrieren
 export const signUpUserToDB = async (user) => {
   const url = "http://localhost:3001/api/users";
