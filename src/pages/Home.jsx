@@ -1,3 +1,4 @@
+import EventCard from "../components/EventCard";
 import EventList from "../components/EventList";
 
 const Home = () => {
@@ -5,6 +6,7 @@ const Home = () => {
     <div className="event-card">
       <h2 className="event-title">here is our Home Page</h2>
       <EventList />
+      <EventCard />
     </div>
   );
 };
