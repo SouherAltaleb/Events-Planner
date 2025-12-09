@@ -113,6 +113,7 @@ const EventContextProvider = ({ children }) => {
     loadEvents();
   }, []);
 
+  //////////////// neue Event speichern /////////////
   const addEvent = (e) => {
     const newEvent = {
       title: e.target.elements.title.value,
@@ -126,6 +127,8 @@ const EventContextProvider = ({ children }) => {
       .then((eventData) => {
         setEvent(eventData);
         ///// setEvents muss noch ergänzed
+        // setEvents((prev) => [...prev, eventData]);
+
         navigate("/");
       })
       .catch((error) => {
