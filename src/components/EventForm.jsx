@@ -23,18 +23,24 @@ const EventForm = () => {
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    addEvent(formData);
+    console.log("hello");
+
+    addEvent(e);
+    // alert("hi");
+    // const finalData = {
+    //   ...formData,
+    //   date: new Date(formData.date).toISOString(),
+    //   latitude: parseFloat(formData.latitude),
+    //   longitude: parseFloat(formData.longitude),
+    // };
+    // addEvent(finalData);
   };
 
   return (
     <div className="flex min-h-screen w-full justify-between bg-(--color-light-beige-50) px-16 py-20">
-      {/* <h2 className="event-title">Event Form</h2>
-      <button className="btn" onClick={addEvent}>
-        add event
-      </button> */}
-
       {/* LEFT SIDE TEXT */}
       <div className="w-1/3">
         <h1 className="mb-4 text-6xl font-bold">LOS GEHTS</h1>
@@ -101,7 +107,6 @@ const EventForm = () => {
           type="submit"
           className="btn mt-2 w-full rounded-full border-0 bg-(--color-primary) text-white shadow-md hover:bg-(--color-secondary)"
         >
-          {" "}
           ADD NEW EVENT
         </button>
       </form>

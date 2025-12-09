@@ -114,27 +114,24 @@ const EventContextProvider = ({ children }) => {
   }, []);
 
   const addEvent = (e) => {
-    //console.log(e.target);
-    //console.log("add event");
-    //setEventToDB();
-    //setEvent();
+    const newEvent = {
+      title: e.target.elements.title.value,
+      description: e.target.elements.description.value,
+      date: e.target.elements.date.value,
+      location: e.target.elements.location.value,
+      latitude: e.target.elements.latitude.value,
+      longitude: e.target.elements.longitude.value,
+    };
+    setEventToDB(newEvent)
+      .then((eventData) => {
+        setEvent(eventData);
+        ///// setEvents muss noch ergänzed
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
-  // const addEvent = async (newEvent) => {
-  //   try {
-  //     console.log("Event wird gespeichert:", newEvent);
-
-  //     const createdEvent = await setEventToDB(newEvent);
-
-  //     console.log("Event erfolgreich erstellt:", createdEvent);
-
-  //     setEvents((prev) => (prev ? [...prev, createdEvent] : [createdEvent]));
-
-  //     return createdEvent;
-  //   } catch (err) {
-  //     console.error("Fehler beim Erstellen des Events:", err);
-  //     throw err;
-  //   }
-  // };
 
   return (
     <EventContext.Provider
