@@ -2,6 +2,13 @@
 @plugin "daisyui" {
   themes: false;
 }
+body {
+  font-family: "Inter", sans-serif;
+  /* background-color: var(--color-light-beige); */
+  /* ich lasse das Bild zuerst */
+  background-image: url(https://images.pexels.com/photos/9175911/pexels-photo-9175911.jpeg);
+}
+/*--------- COLORS ----------*/
 :root {
   --color-primary: #6d2e46;
   --color-secondary: #a26769;
@@ -10,22 +17,29 @@
   --color-light-beige: #ece2d0;
   --color-light-beige-50: #f5f1e7;
 }
-body {
-  font-family: "Inter", sans-serif;
-  /* background-color: var(--color-light-beige); */
-  /* ich lasse das Bild zuerst */
-  background-image: url(https://images.pexels.com/photos/9175911/pexels-photo-9175911.jpeg);
-}
 
+/*--------- HEADLINES ----------*/
 h2,
 h3 {
   font-family: "Montserrat", sans-serif;
   color: var(--color-primary);
   font-weight: bold;
 }
-/* test */
+
 h1 {
   color: var(--color-primary);
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
+}
+/*--------- HOME ----------*/
+/*--------- HEADER ----------*/
+/*--------- FOOTER ----------*/
+/*--------- EVENT CARDS ----------*/
+/*--------- EVENT LIST ----------*/
+/*--------- SIGNIN ----------*/
+/*--------- SIGNUP ----------*/
+/*--------- UPDATEUSER ----------*/
+/*--------- PLACEHOLDER ----------*/
+.error::placeholder {
+  color: red;
 }
