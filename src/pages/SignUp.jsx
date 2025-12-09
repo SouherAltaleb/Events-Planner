@@ -11,26 +11,51 @@ const SignUp = () => {
   };
 
   return (
-    <div className="event-card">
-      <h2 className="event-title">here is Sign Up</h2>
-      <form method="post" onSubmit={handleSubmit}>
-        <label htmlFor="email" className="block">
-          Email
-        </label>
-        <input id="email" name="email" type="email" className="input" />
-        <label htmlFor="password" className="block">
-          Password
-        </label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          className="input"
+    <div className="mx-auto my-5 flex w-[96%] max-w-[1086px] flex-col items-center justify-between gap-4 rounded-2xl bg-white px-4 md:flex-row md:px-16">
+      <div className="full-w flex items-center justify-center md:w-1/2">
+        <img
+          src="public/celebrate.jpg"
+          width="100%"
+          height="auto"
+          alt="Sign in"
+          className="block"
         />
-        <button type="submit" className="btn">
-          Sign up user
-        </button>
-      </form>
+      </div>
+      <div className="full-w md:w-1/2">
+        <h1 className="mb-5 text-2xl uppercase">Sign Up</h1>
+        <form
+          method="post"
+          onSubmit={handleSubmit}
+          className="full-w flex flex-col gap-4"
+        >
+          <label htmlFor="email" className="sr-only">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            className="input input-border shadow-2xm w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
+          />
+          <label htmlFor="password" className="sr-only">
+            Password
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            className="input input-border shadow-2xm w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
+          />
+          <button
+            type="submit"
+            className="btn mt-2 mb-4 w-full rounded-full border-0 bg-(--color-primary) text-white shadow-md hover:bg-(--color-secondary) md:mb-0"
+          >
+            Sign up
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
