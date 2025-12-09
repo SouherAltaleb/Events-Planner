@@ -30,13 +30,13 @@ const EventList = () => {
     <div className="event-card">
       <h2 className="event-title">Event List</h2>
 
-      <ul className="my-10">
+      <ul className="">
         {events.results.map((event) => (
           // <EventCard event={event} key={event.id} />
-          <li key={event.id}>
+          <li key={event.id} className="">
             {event.title}
             <button
-              className="m-3 bg-[#6D2E46] font-(--font-body)"
+              className="bg-[#6D2E46] font-(--font-body)"
               onClick={() =>
                 navigate(`/events/${encodeURIComponent(event.title)}`)
               }
