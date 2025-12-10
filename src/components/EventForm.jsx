@@ -26,7 +26,6 @@ const EventForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("hello");
 
     addEvent(e);
     // alert("hi");
@@ -53,7 +52,7 @@ const EventForm = () => {
         <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
           LOS GEHTS
         </h1>
-        <h2 className="mx-auto max-w-xs text-2xl leading-tight md:max-w-sm md:text-3xl lg:text-4xl">
+        <h2 className="max-w-xs text-2xl leading-tight md:max-w-sm md:text-3xl lg:text-4xl">
           YOUR NEXT BIG MOMENT STARTS NOW.
         </h2>
       </div>

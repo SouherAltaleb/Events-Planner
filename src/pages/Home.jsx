@@ -1,3 +1,4 @@
+import EventCard from "../components/EventCard";
 import EventList from "../components/EventList";
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
       </div>
 
       <EventList />
+      <EventCard />
     </div>
   );
 };
