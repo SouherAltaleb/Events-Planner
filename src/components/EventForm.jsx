@@ -44,7 +44,7 @@ const EventForm = () => {
         {/* BACKGROUND IMAGES */}
         <img
           src="beige-form.svg"
-          className="l absolute top-20 right-0 z-0 w-40 opacity-50 md:w-56 md:opacity-100"
+          className="absolute top-20 right-0 z-0 w-40 opacity-50 md:w-56 md:opacity-100"
         />
         <img src="rosa-form.svg" className="absolute bottom-20 left-0 z-0" />
 
