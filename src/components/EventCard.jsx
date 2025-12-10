@@ -1,9 +1,11 @@
-import { Link } from "react-router";
+// import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 const EventCard = ({ event }) => {
   if (!event) return null;
   const { id = event._id, title, date, location } = event;
-
+  // Hook to navigate programmatically
+  const navigate = useNavigate();
   return (
     <div className="relative w-full max-w-xs rounded-3xl bg-white p-6 shadow-[10px_10px_0px_0px_var(--color-hell-rosa)]">
       {/* Titel */}
@@ -16,12 +18,12 @@ const EventCard = ({ event }) => {
       <p className="text-sm text-gray-600">{location}</p>
 
       {/* Button */}
-      <Link
-        to={`/event/${id}`}
+      <button
+        onClick={() => navigate(`/events/${encodeURIComponent(event.title)}`)}
         className="btn btn-sm mt-5 rounded-full border-none bg-(--color-primary) px-6 text-white hover:bg-(--color-secondary)"
       >
         DETAILS
-      </Link>
+      </button>
 
       <img
         src="logo-img.svg"
