@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 import { EventContext } from "../context/UseEventContext";
+import EventCard from "./EventCard";
 
 const EventList = () => {
   const { events, loadEvents } = useContext(EventContext); //if (!events) return <div>Loading...</div>;
@@ -30,13 +31,18 @@ const EventList = () => {
     <div className="event-card">
       <h2 className="event-title">Event List</h2>
 
-      <ul className="my-10">
+      <div className="my-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {events.results.map((event) => (
+          <EventCard event={event} key={event.id} />
+        ))}
+      </div>
+      {/* <ul className="my-10">
         {events.results.map((event) => (
           // <EventCard event={event} key={event.id} />
-          <li key={event.id}>
+          <li key={event.id} className="">
             {event.title}
             <button
-              className="m-3 bg-[#6D2E46] font-(--font-body)"
+              className="bg-[#6D2E46] font-(--font-body)"
               onClick={() =>
                 navigate(`/events/${encodeURIComponent(event.title)}`)
               }
@@ -45,7 +51,7 @@ const EventList = () => {
             </button>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
