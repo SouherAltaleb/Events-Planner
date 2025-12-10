@@ -5,7 +5,7 @@ import { EventContext } from "../context/UseEventContext.jsx";
 
 const ProtectedOnlyAuth = () => {
   const { user } = useContext(EventContext);
-  return user ? <Outlet /> : <Navigate to="/" />;
+  return user && user.isActive === true ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default ProtectedOnlyAuth;

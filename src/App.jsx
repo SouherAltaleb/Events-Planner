@@ -8,6 +8,7 @@ import EventDetail from "./pages/EventDetail.jsx";
 import Home from "./pages/Home.jsx";
 import SignIn from "./pages/SignIn.jsx";
 import SignUp from "./pages/SignUp.jsx";
+import UpdateUser from "./pages/UpdateUser.jsx";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="addEvent" element={<ProtectedOnlyAuth />}>
             <Route index element={<AddEvent />} />
+          </Route>
+          <Route path="updateUser" element={<ProtectedOnlyAuth />}>
+            <Route index element={<UpdateUser />} />
           </Route>
         </Route>
       </Routes>
