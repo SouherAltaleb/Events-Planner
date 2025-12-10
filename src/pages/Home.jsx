@@ -6,7 +6,8 @@ const Home = () => {
       <div className="hero-main">
         <div className="hero-main-content">
           <h1 className="hero-main-title">
-            Events <span className="text-6xl"> Made Simple</span>
+            Events <br />
+            <span className="text-6xl"> Made Simple</span>
           </h1>
 
           <p className="hero-main-text">
