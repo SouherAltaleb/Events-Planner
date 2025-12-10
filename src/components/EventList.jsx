@@ -30,7 +30,7 @@ const EventList = () => {
         UPCOMING EVENTS
       </h2>
 
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="my-10 grid grid-cols-1 content-center gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3">
         {events.results.map((event) => (
           <EventCard event={event} key={event.id} />
         ))}
