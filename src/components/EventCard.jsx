@@ -5,7 +5,7 @@ const EventCard = ({ event }) => {
   const { id = event._id, title, date, location } = event;
 
   return (
-    <div className="relative w-full max-w-xs rounded-3xl bg-white p-6 shadow-[10px_10px_0px_0px_var(--color-hell-rosa)]">
+    <div className="relative w-full max-w-100 rounded-3xl bg-white p-6 shadow-[10px_10px_0px_0px_var(--color-hell-rosa)]">
       {/* Titel */}
       <h2 className="text-xl font-semibold text-(--color-primary)">{title}</h2>
 
