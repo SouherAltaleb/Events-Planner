@@ -39,10 +39,10 @@ const EventList = () => {
       {/* <ul className="my-10">
         {events.results.map((event) => (
           // <EventCard event={event} key={event.id} />
-          <li key={event.id}>
+          <li key={event.id} className="">
             {event.title}
             <button
-              className="m-3 bg-[#6D2E46] font-(--font-body)"
+              className="bg-[#6D2E46] font-(--font-body)"
               onClick={() =>
                 navigate(`/events/${encodeURIComponent(event.title)}`)
               }
