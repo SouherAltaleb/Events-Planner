@@ -9,7 +9,7 @@ import {
   signUpUserToDB,
   updateUserToDB,
 } from "../api/api.js";
-import { getEventsFromDB } from "../api/eventApi.js";
+import { getEventsFromDB, setEventToDB } from "../api/eventApi.js";
 
 export const EventContext = createContext();
 
@@ -113,11 +113,27 @@ const EventContextProvider = ({ children }) => {
     loadEvents();
   }, []);
 
+  //////////////// neue Event speichern /////////////
   const addEvent = (e) => {
-    //console.log(e.target);
-    //console.log("add event");
-    //setEventToDB();
-    //setEvent();
+    const newEvent = {
+      title: e.target.elements.title.value,
+      description: e.target.elements.description.value,
+      date: e.target.elements.date.value,
+      location: e.target.elements.location.value,
+      latitude: e.target.elements.latitude.value,
+      longitude: e.target.elements.longitude.value,
+    };
+    setEventToDB(newEvent)
+      .then((eventData) => {
+        setEvent(eventData);
+        ///// setEvents muss noch ergänzed
+        // setEvents((prev) => [...prev, eventData]);
+
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
