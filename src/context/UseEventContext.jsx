@@ -31,10 +31,11 @@ const EventContextProvider = ({ children }) => {
     };
     signUpUserToDB(newUser)
       .then((signUpData) => {
-        const user = { ...signUpData, isActive: true };
-        localStorage.setItem("user", JSON.stringify(user));
+        const user = { ...signUpData, isActive: false };
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
         setUser(user);
-        navigate("/");
+        navigate("/signin");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -90,7 +91,7 @@ const EventContextProvider = ({ children }) => {
     };
     updateUserToDB(newUser, id)
       .then((updateUserData) => {
-        const user = { ...updateUserData };
+        const user = { ...updateUserData, isActive: true };
         localStorage.setItem("user", JSON.stringify(user));
         setUser(user);
         navigate("/");
