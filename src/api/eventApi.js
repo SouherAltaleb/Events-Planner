@@ -18,7 +18,7 @@ export const getEventsFromDB = async () => {
   }
 };
 
-//  Event in die Datenbank speichern
+//  Event in die Datenbank speichern (mit Token)
 export const setEventToDB = async (event) => {
   const url = "http://localhost:3001/api/events";
   const token = localStorage.getItem("token");
@@ -33,6 +33,25 @@ export const setEventToDB = async (event) => {
       },
       body: JSON.stringify(event),
     });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error while creating event", error);
+    throw error;
+  }
+};
+
+//  GEO Location ermitteln
+export const getGeoLocation = async (location) => {
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${location}`;
+
+  try {
+    const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error(`Error: ${response.status} ${response.statusText}`);

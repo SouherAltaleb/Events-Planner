@@ -5,6 +5,7 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--color-light-beige-50);
+  padding-top: 100px;
   /* ich lasse das Bild zuerst */
   /* background-image: url(https://images.pexels.com/photos/9175911/pexels-photo-9175911.jpeg); */
 }
@@ -94,6 +95,7 @@ h1 {
 }
 
 /*--------- HEADER ----------*/
+
 /*--------- FOOTER ----------*/
 /*--------- EVENT CARDS ----------*/
 /*--------- EVENT LIST ----------*/

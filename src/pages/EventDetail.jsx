@@ -12,7 +12,7 @@ const EventDetail = () => {
   return (
     <div className="eventDetail-container">
       <figure className="eventDetai-img-holder">
-        <img className="eventDetail-img" src="./logo-img.svg"></img>
+        <img className="eventDetail-img" src="/celebrate.png" alt="celebrate" />
       </figure>
       <div className="event-content">
         <h2 className="event-title">Detail for: {event.title}</h2>
