@@ -16,12 +16,23 @@ export const signUpUserToDB = async (user) => {
       body: JSON.stringify(userData),
     });
     if (!response.ok) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`);
+      const errorData = await response.json().catch(() => ({}));
+      return {
+        error: true,
+        message: errorData.error,
+      };
     }
     const data = await response.json();
-    return data;
+    return {
+      error: false,
+      data,
+    };
   } catch (error) {
     console.error("Error:", error);
+    return {
+      error: true,
+      message: error.message,
+    };
   }
 };
 
@@ -38,12 +49,23 @@ export const signInUserToDB = async (user) => {
       body: JSON.stringify(userData),
     });
     if (!response.ok) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`);
+      const errorData = await response.json().catch(() => ({}));
+      return {
+        error: true,
+        message: errorData.error,
+      };
     }
     const data = await response.json();
-    return data;
+    return {
+      error: false,
+      data,
+    };
   } catch (error) {
     console.error("Error:", error);
+    return {
+      error: true,
+      message: error.message,
+    };
   }
 };
 
@@ -85,11 +107,22 @@ export const updateUserToDB = async (user, id) => {
       body: JSON.stringify(userData),
     });
     if (!response.ok) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`);
+      const errorData = await response.json().catch(() => ({}));
+      return {
+        error: true,
+        message: errorData.error,
+      };
     }
     const data = await response.json();
-    return data;
+    return {
+      error: false,
+      data,
+    };
   } catch (error) {
     console.error("Error:", error);
+    return {
+      error: true,
+      message: error.message,
+    };
   }
 };

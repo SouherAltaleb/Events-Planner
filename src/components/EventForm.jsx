@@ -1,9 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { EventContext } from "../context/UseEventContext";
 
 const EventForm = () => {
-  const { addEvent } = useContext(EventContext);
+  const { error, setError, addEvent } = useContext(EventContext);
+
+  useEffect(() => {
+    return () => {
+      setError(null);
+    };
+  }, []);
 
   // state für eingabefelder
   const [formData, setFormData] = useState({
@@ -91,6 +97,7 @@ const EventForm = () => {
           <h2 className="max-w-xs text-2xl leading-tight md:max-w-sm md:text-3xl lg:text-4xl">
             YOUR NEXT BIG MOMENT STARTS NOW.
           </h2>
+          {error}
         </div>
 
         {/* FORM AREA */}
