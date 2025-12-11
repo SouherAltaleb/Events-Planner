@@ -28,6 +28,26 @@ const EventContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [event, setEvent] = useState(null);
   const [events, setEvents] = useState(null);
+
+  const translateError = (msg) => {
+    if (msg.startsWith("User Already Exist")) {
+      return "This user already exists.";
+    }
+    if (msg.startsWith("Forbidden. Invalid email or password")) {
+      return "Forbidden. Invalid email or password.";
+    }
+    if (msg.includes('"name" length must be at least 2')) {
+      return "The name must be at least 2 characters long.";
+    }
+    if (msg.includes('"title" length must be at least 3')) {
+      return "The title must be at least 3 characters long.";
+    }
+    if (msg.includes("must be a maximum of 5000 characters")) {
+      return "The description must be a maximum of 5000 characters.";
+    }
+    return "An  error has occurred.";
+  };
+
   const [upcomingEvents, setUpcomingEvents] = useState(null);
   // User registrieren
   const signUpUser = (e) => {
@@ -39,7 +59,7 @@ const EventContextProvider = ({ children }) => {
       .then((signUpData) => {
         if (signUpData.error) {
           const error = signUpData.message;
-          setError(error);
+          setError(translateError(error));
         } else {
           const user = { ...signUpData.data, isActive: false };
           localStorage.removeItem("user");
@@ -63,7 +83,7 @@ const EventContextProvider = ({ children }) => {
       .then((signInData) => {
         if (signInData.error) {
           const error = signInData.message;
-          setError(error);
+          setError(translateError(error));
         } else {
           if (signInData.data.token) {
             const user = { ...signInData.data.user, isActive: true };
@@ -118,7 +138,7 @@ const EventContextProvider = ({ children }) => {
       .then((updateUserData) => {
         if (updateUserData.error) {
           const error = updateUserData.message;
-          setError(error);
+          setError(translateError(error));
         } else {
           const user = { ...updateUserData.data, isActive: true };
           localStorage.setItem("user", JSON.stringify(user));
@@ -182,7 +202,7 @@ const EventContextProvider = ({ children }) => {
           .then((eventData) => {
             if (eventData.error) {
               const error = eventData.message;
-              setError(error);
+              setError(translateError(error));
             } else {
               const newEvents = [...events, eventData.data];
               const sortedByDateEvents = newEvents.sort(
