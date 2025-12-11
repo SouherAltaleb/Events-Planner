@@ -34,11 +34,15 @@ const EventDetail = () => {
   }).format(new Date(event.date));
 
   return (
-    <div className="eventDetail-container">
+    <div className="eventDetail-container pt-20">
       {/* Image Section */}
       <figure className="eventDetai-img-holder">
         {/* Use absolute path for images in public folder */}
-        <img className="eventDetail-img" src="/bg-hero.jpg" alt="celebrate" />
+        <img
+          className="eventDetail-img max-w-100"
+          src="/party.svg"
+          alt="celebrate"
+        />
       </figure>
 
       {/* Content Section */}
