@@ -133,7 +133,7 @@ const EventContextProvider = ({ children }) => {
   const loadEvents = async () => {
     try {
       const eventsFromAPI = await getEventsFromDB();
-      setEvents(eventsFromAPI);
+      setEvents(eventsFromAPI.results);
     } catch (err) {
       console.error("Failed to load events:", err);
     }
@@ -168,10 +168,11 @@ const EventContextProvider = ({ children }) => {
               const error = eventData.message;
               setError(error);
             } else {
-              console.log(eventData.data);
-              console.log(events);
-              //const newEvents = [...events.results, eventData.data];
-              //setEvents(newEvents);
+              const newEvents = [...events, eventData.data];
+              const sortedByDateEvents = newEvents.sort(
+                (a, b) => new Date(b.date) - new Date(a.date),
+              );
+              setEvents(sortedByDateEvents);
               navigate("/");
             }
           })
