@@ -10,9 +10,14 @@ const EventDetail = () => {
   if (!event) return <div>No event found.</div>;
 
   return (
-    <div className="event-card">
-      <h2 className="event-title">Detail for: {event.title}</h2>
-      <p>{event.description}</p>
+    <div className="eventDetail-container">
+      <figure className="eventDetai-img-holder">
+        <img className="eventDetail-img" src="./logo-img.svg"></img>
+      </figure>
+      <div className="event-content">
+        <h2 className="event-title">Detail for: {event.title}</h2>
+        <p>{event.description}</p>
+      </div>
     </div>
   );
 };
