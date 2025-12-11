@@ -1,9 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { EventContext } from "../context/UseEventContext";
 
 const SignUp = () => {
-  const { signUpUser } = useContext(EventContext);
+  const { error, setError, signUpUser } = useContext(EventContext);
+
+  useEffect(() => {
+    return () => {
+      setError(null);
+    };
+  }, []);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -65,6 +71,7 @@ const SignUp = () => {
         />
       </div>
       <div className="full-w md:w-1/2">
+        {error}
         <h1 className="mb-5 text-2xl uppercase">Sign Up</h1>
         <form
           method="post"

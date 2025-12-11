@@ -35,14 +35,23 @@ export const setEventToDB = async (event) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`);
+      const errorData = await response.json().catch(() => ({}));
+      return {
+        error: true,
+        message: errorData.error,
+      };
     }
-
     const data = await response.json();
-    return data;
+    return {
+      error: false,
+      data,
+    };
   } catch (error) {
-    console.error("Error while creating event", error);
-    throw error;
+    console.error("Error:", error);
+    return {
+      error: true,
+      message: error.message,
+    };
   }
 };
 
