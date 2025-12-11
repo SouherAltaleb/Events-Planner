@@ -27,7 +27,7 @@ const EventList = () => {
     <div className="m-10">
       <h2 className="mb-5 text-xl font-semibold text-(--color-primary)">
         {" "}
-        Our EVENTS
+        OUR EVENTS
       </h2>
 
       <div className="my-10 grid grid-cols-1 content-center gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3">
