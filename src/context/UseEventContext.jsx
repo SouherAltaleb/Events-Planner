@@ -24,7 +24,7 @@ const EventContextProvider = ({ children }) => {
   });
   /*const token = localStorage.getItem("token");
   const storedToken = token ? JSON.parse(token) : null;*/
-
+  const [error, setError] = useState(null);
   const [event, setEvent] = useState(null);
   const [events, setEvents] = useState(null);
 
@@ -36,11 +36,16 @@ const EventContextProvider = ({ children }) => {
     };
     signUpUserToDB(newUser)
       .then((signUpData) => {
-        const user = { ...signUpData, isActive: false };
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
-        setUser(user);
-        navigate("/signin");
+        if (signUpData.error) {
+          const error = signUpData.message;
+          setError(error);
+        } else {
+          const user = { ...signUpData.data, isActive: false };
+          localStorage.removeItem("user");
+          localStorage.removeItem("token");
+          setUser(user);
+          navigate("/signin");
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -55,12 +60,20 @@ const EventContextProvider = ({ children }) => {
     };
     signInUserToDB(newUser)
       .then((signInData) => {
-        if (signInData.token) {
-          const user = { ...signInData.user, isActive: true };
-          localStorage.setItem("user", JSON.stringify(user));
-          localStorage.setItem("token", JSON.stringify(signInData.token));
-          setUser(user);
-          navigate("/");
+        if (signInData.error) {
+          const error = signInData.message;
+          setError(error);
+        } else {
+          if (signInData.data.token) {
+            const user = { ...signInData.data.user, isActive: true };
+            localStorage.setItem("user", JSON.stringify(user));
+            localStorage.setItem(
+              "token",
+              JSON.stringify(signInData.data.token),
+            );
+            setUser(user);
+            navigate("/");
+          }
         }
       })
       .catch((error) => {
@@ -80,7 +93,7 @@ const EventContextProvider = ({ children }) => {
   const deleteUser = (id) => {
     deleteUserFromDB(id)
       .then((response) => {
-        if (response.status === 204) {
+        if (response.ok) {
           localStorage.removeItem("user");
           localStorage.removeItem("token");
           setUser(null);
@@ -102,10 +115,15 @@ const EventContextProvider = ({ children }) => {
     };
     updateUserToDB(newUser, id)
       .then((updateUserData) => {
-        const user = { ...updateUserData, isActive: true };
-        localStorage.setItem("user", JSON.stringify(user));
-        setUser(user);
-        navigate("/");
+        if (updateUserData.error) {
+          const error = updateUserData.message;
+          setError(error);
+        } else {
+          const user = { ...updateUserData.data, isActive: true };
+          localStorage.setItem("user", JSON.stringify(user));
+          setUser(user);
+          navigate("/");
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -146,10 +164,16 @@ const EventContextProvider = ({ children }) => {
         };
         setEventToDB(newEvent)
           .then((eventData) => {
-            setEvent(eventData);
-            // setEvents muss noch ergänzed
-            // setEvents((prev) => [...prev, eventData]);
-            navigate("/");
+            if (eventData.error) {
+              const error = eventData.message;
+              setError(error);
+            } else {
+              console.log(eventData.data);
+              console.log(events);
+              //const newEvents = [...events.results, eventData.data];
+              //setEvents(newEvents);
+              navigate("/");
+            }
           })
           .catch((error) => {
             console.error("Error:", error);
@@ -163,6 +187,8 @@ const EventContextProvider = ({ children }) => {
   return (
     <EventContext.Provider
       value={{
+        error,
+        setError,
         user,
         setUser,
         event,

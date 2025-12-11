@@ -1,9 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { EventContext } from "../context/UseEventContext";
 
 const UpdateUser = () => {
-  const { user, updateUser, deleteUser } = useContext(EventContext);
+  const { user, error, setError, updateUser, deleteUser } =
+    useContext(EventContext);
+
+  useEffect(() => {
+    return () => {
+      setError(null);
+    };
+  }, []);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -60,6 +67,7 @@ const UpdateUser = () => {
 
   return (
     <div className="mx-auto my-5 w-[96%] max-w-[1086px] rounded-2xl bg-white p-16">
+      {error}
       <h1 className="mb-5 text-2xl uppercase">Update</h1>
       <form
         method="post"
