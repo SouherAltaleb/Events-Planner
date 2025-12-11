@@ -18,6 +18,29 @@ export const getEventsFromDB = async () => {
   }
 };
 
+//  Take upcoming Data for Event//
+export const getUpcomingEvents = async () => {
+  const url = `http://localhost:3001/api/events/upcoming`;
+
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} ${response.statusText}`);
+    }
+    const data = await response.json();
+    console.log("Upcoming Events Data:", data);
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 //  Event in die Datenbank speichern (mit Token)
 export const setEventToDB = async (event) => {
   const url = "http://localhost:3001/api/events";
