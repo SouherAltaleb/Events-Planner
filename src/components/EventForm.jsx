@@ -70,7 +70,7 @@ const EventForm = () => {
             placeholder="title"
             value={formData.title}
             onChange={handleChange}
-            className="input input-bordered w-full rounded-full bg-white shadow-md"
+            className="input input-bordered w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
           />
 
           {/* Description */}
@@ -79,7 +79,7 @@ const EventForm = () => {
             placeholder="Description"
             value={formData.description}
             onChange={handleChange}
-            className="textarea textarea-bordered h-32 w-full rounded-2xl bg-white shadow-md"
+            className="textarea textarea-bordered h-32 w-full rounded-2xl border-(--color-primary) bg-white shadow-md hover:border-2"
           />
 
           {/* Date */}
@@ -88,7 +88,7 @@ const EventForm = () => {
             name="date"
             value={formData.date}
             onChange={handleChange}
-            className="input input-bordered w-full rounded-full bg-white shadow-md"
+            className="input input-bordered w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
           />
 
           {/* Location */}
@@ -98,7 +98,7 @@ const EventForm = () => {
             placeholder="location"
             value={formData.location}
             onChange={handleChange}
-            className="input input-bordered w-full rounded-full bg-white shadow-md"
+            className="input input-bordered w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
           />
 
           {/* Latitude */}
@@ -108,7 +108,7 @@ const EventForm = () => {
             placeholder="latitude"
             value={formData.latitude}
             onChange={handleChange}
-            className="input input-bordered w-full rounded-full bg-white shadow-md"
+            className="input input-bordered w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
           />
 
           {/* Longitude */}
@@ -118,7 +118,7 @@ const EventForm = () => {
             placeholder="longitude"
             value={formData.longitude}
             onChange={handleChange}
-            className="input input-bordered w-full rounded-full bg-white shadow-md"
+            className="input input-bordered w-full rounded-full border-(--color-primary) bg-white shadow-md hover:border-2"
           />
 
           {/* Button */}
