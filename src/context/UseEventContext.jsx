@@ -43,7 +43,7 @@ const EventContextProvider = ({ children }) => {
       return "The title must be at least 3 characters long.";
     }
     if (msg.includes("must be a maximum of 5000 characters")) {
-      return "The title must be at least 3 characters long.";
+      return "The description must be a maximum of 5000 characters.";
     }
     return "An  error has occurred.";
   };
