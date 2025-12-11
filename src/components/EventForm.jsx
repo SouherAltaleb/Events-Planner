@@ -81,7 +81,7 @@ const EventForm = () => {
 
   return (
     <div className="right-0 m-0 p-0">
-      <div className="flex min-h-screen w-full flex-col justify-between gap-12 px-16 py-20 md:flex-row md:justify-between md:px-12 lg:px-16 lg:py-20">
+      <div className="flex min-h-screen w-full flex-col gap-12 px-16 py-20 md:flex-row md:justify-between md:px-12 lg:px-16 lg:py-20">
         {/* BACKGROUND IMAGES */}
         <img
           src="beige-form.svg"
@@ -94,10 +94,9 @@ const EventForm = () => {
           <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
             LOS GEHTS
           </h1>
-          <h2 className="max-w-xs text-2xl leading-tight md:max-w-sm md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl leading-tight md:max-w-sm md:text-3xl lg:text-4xl">
             YOUR NEXT BIG MOMENT STARTS NOW.
           </h2>
-          {error}
         </div>
 
         {/* FORM AREA */}
@@ -194,6 +193,37 @@ const EventForm = () => {
           >
             ADD NEW EVENT
           </button>
+
+          {/* {error} */}
+          {error && (
+            <div className="flex items-start gap-3 rounded-xl bg-red-100 p-4 text-(--color-alert) shadow-md">
+              {/* Icon */}
+              <svg
+                className="mt-0.5 h-5 w-5 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 9v3m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+              </svg>
+
+              {/* Error Text */}
+              <span className="text-sm font-medium">{error}</span>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setError(null)}
+                className="ml-auto text-(--color-alert) hover:text-(--color-alert)"
+              >
+                ✕
+              </button>
+            </div>
+          )}
         </form>
       </div>
     </div>
