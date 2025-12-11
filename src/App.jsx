@@ -8,6 +8,7 @@ import EventDetail from "./pages/EventDetail.jsx";
 import Home from "./pages/Home.jsx";
 import SignIn from "./pages/SignIn.jsx";
 import SignUp from "./pages/SignUp.jsx";
+import UpcomingEvent from "./pages/UpcomingEvent.jsx";
 import UpdateUser from "./pages/UpdateUser.jsx";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="events/:title" element={<EventDetail />} />
+          <Route path="/upcoming" element={<UpcomingEvent />} />
           <Route path="/signin" element={<ProtectedOnlyGuest />}>
             <Route index element={<SignIn />} />
           </Route>

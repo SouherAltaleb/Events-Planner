@@ -6,13 +6,20 @@ const EventCard = ({ event }) => {
   const { id = event._id, title, date, location } = event;
   // Hook to navigate programmatically
   const navigate = useNavigate();
+  // Format the event date into a readable style
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(event.date));
+
   return (
     <div className="relative w-full max-w-100 rounded-3xl bg-white p-6 shadow-[10px_10px_0px_0px_var(--color-hell-rosa)]">
       {/* Titel */}
       <h2 className="text-xl font-semibold text-(--color-primary)">{title}</h2>
 
       {/* Datum */}
-      <p className="mt-1 text-sm text-gray-500">{date}</p>
+      <p className="mt-1 text-sm text-gray-500">{formattedDate}</p>
 
       {/* Ort */}
       <p className="text-sm text-gray-600">{location}</p>

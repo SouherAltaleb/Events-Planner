@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import {
   getEventsFromDB,
   getGeoLocation,
+  getUpcomingEvents,
   setEventToDB,
 } from "../api/eventApi.js";
 import {
@@ -41,9 +42,13 @@ const EventContextProvider = ({ children }) => {
     if (msg.includes('"title" length must be at least 3')) {
       return "The title must be at least 3 characters long.";
     }
+    if (msg.includes("must be a maximum of 5000 characters")) {
+      return "The title must be at least 3 characters long.";
+    }
     return "An  error has occurred.";
   };
 
+  const [upcomingEvents, setUpcomingEvents] = useState(null);
   // User registrieren
   const signUpUser = (e) => {
     const newUser = {
@@ -159,6 +164,21 @@ const EventContextProvider = ({ children }) => {
     loadEvents();
   }, []);
 
+  const loadUpcomingEvents = async () => {
+    try {
+      const upcomingEventsFromAPI = await getUpcomingEvents();
+      console.log("Upcoming Events loaded in API:", upcomingEventsFromAPI);
+      setUpcomingEvents(upcomingEventsFromAPI);
+      console.log("Upcoming Events loaded in Context:", upcomingEvents);
+    } catch (err) {
+      console.error("Failed to load events:", err);
+    }
+  };
+
+  useEffect(() => {
+    loadUpcomingEvents();
+  }, []);
+
   // Event speichern (mit Token)
   const addEvent = (e) => {
     const event = {
@@ -219,6 +239,8 @@ const EventContextProvider = ({ children }) => {
         deleteUser,
         updateUser,
         loadEvents,
+        upcomingEvents,
+        setUpcomingEvents,
       }}
     >
       {children}
