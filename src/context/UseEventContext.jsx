@@ -168,10 +168,11 @@ const EventContextProvider = ({ children }) => {
               const error = eventData.message;
               setError(error);
             } else {
-              //console.log(eventData.data);
-              //console.log(events);
               const newEvents = [...events, eventData.data];
-              setEvents(newEvents);
+              const sortedByDateEvents = newEvents.sort(
+                (a, b) => new Date(b.date) - new Date(a.date),
+              );
+              setEvents(sortedByDateEvents);
               navigate("/");
             }
           })
