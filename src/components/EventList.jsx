@@ -17,7 +17,7 @@ const EventList = () => {
     return <p>Loading…</p>;
   }
 
-  if (events.results.length === 0) {
+  if (events.length === 0) {
     return (
       <div>No events were found because the API is not currently working.</div>
     );
@@ -31,7 +31,7 @@ const EventList = () => {
       </h2>
 
       <div className="my-10 grid grid-cols-1 content-center gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3">
-        {events.results.map((event) => (
+        {events.map((event) => (
           <EventCard event={event} key={event.id} />
         ))}
       </div>

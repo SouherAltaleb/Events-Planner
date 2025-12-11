@@ -22,9 +22,7 @@ const EventDetail = () => {
   if (!events) return <div>Loading...</div>;
 
   // Find event by decoded title
-  const event = events.results.find(
-    (e) => e.title === decodeURIComponent(title),
-  );
+  const event = events.find((e) => e.title === decodeURIComponent(title));
 
   // If event not found
   if (!event) return <div>No event found.</div>;
