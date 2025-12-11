@@ -2,22 +2,26 @@ import EventList from "../components/EventList";
 
 const Home = () => {
   return (
-    <div className="event-card">
-      <div className="hero-main">
-        <div className="hero-main-content">
+    <div>
+      {/* Hero Section */}
+      <div className="hero-main relative h-full">
+        <img
+          src="/hero-bild.png"
+          alt="Hero"
+          className="hero-img w-full object-cover md:h-screen"
+        />
+        {/* Content overlay on image */}
+        <div className="hero-main-content absolute inset-0 flex flex-col content-start items-start justify-start gap-5 p-20 text-white">
           <h1 className="hero-main-title">
-            Events <br />
-            <span className="text-6xl"> Made Simple</span>
+            Events <br />{" "}
+            <span className="md: text-3xl text-[4rem]">Made Simple</span>
           </h1>
-
           <p className="hero-main-text">
-            Gestalte Erlebnisse ohne Grenzen flexibel, intuitiv und jederzeit.
+            Gestalte Erlebnisse ohne Grenzen <br /> flexibel, intuitiv und
+            jederzeit.
           </p>
           <button className="hero-main-btn">Get Started</button>
         </div>
-        <figure className="hero-img-holder">
-          <img src="./bg-hero.jpg" className="hero-img"></img>
-        </figure>
       </div>
 
       <EventList />

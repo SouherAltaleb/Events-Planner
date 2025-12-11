@@ -1,4 +1,4 @@
-// User aus der API holen
+// User aus der Datenbank holen
 export const getUserFromDB = async () => {
   return null;
 };
@@ -24,6 +24,7 @@ export const signUpUserToDB = async (user) => {
     console.error("Error:", error);
   }
 };
+
 // User einloggen
 export const signInUserToDB = async (user) => {
   const url = "http://localhost:3001/api/auth/login";

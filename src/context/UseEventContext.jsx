@@ -2,14 +2,17 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 import {
+  getEventsFromDB,
+  getGeoLocation,
+  setEventToDB,
+} from "../api/eventApi.js";
+import {
   deleteUserFromDB,
   //getUserFromDB,
-  //setEventToDB,
   signInUserToDB,
   signUpUserToDB,
   updateUserToDB,
-} from "../api/api.js";
-import { getEventsFromDB, setEventToDB } from "../api/eventApi.js";
+} from "../api/userAPI.js";
 
 export const EventContext = createContext();
 
@@ -24,6 +27,8 @@ const EventContextProvider = ({ children }) => {
 
   const [event, setEvent] = useState(null);
   const [events, setEvents] = useState(null);
+
+  // User registrieren
   const signUpUser = (e) => {
     const newUser = {
       email: e.target.elements.email.value,
@@ -41,6 +46,8 @@ const EventContextProvider = ({ children }) => {
         console.error("Error:", error);
       });
   };
+
+  // User einloggen
   const signInUser = (e) => {
     const newUser = {
       email: e.target.elements.email.value,
@@ -60,6 +67,8 @@ const EventContextProvider = ({ children }) => {
         console.error("Error:", error);
       });
   };
+
+  // User ausloggen
   const logoutUser = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
@@ -67,6 +76,7 @@ const EventContextProvider = ({ children }) => {
     navigate("/");
   };
 
+  // User löschen (mit Token)
   const deleteUser = (id) => {
     deleteUserFromDB(id)
       .then((response) => {
@@ -82,6 +92,7 @@ const EventContextProvider = ({ children }) => {
       });
   };
 
+  // User Daten updaten (mit Token)
   const updateUser = (e, id) => {
     const newUser = {
       name: e.target.elements.name.value,
@@ -114,23 +125,35 @@ const EventContextProvider = ({ children }) => {
     loadEvents();
   }, []);
 
-  //////////////// neue Event speichern /////////////
+  // Event speichern (mit Token)
   const addEvent = (e) => {
-    const newEvent = {
+    const event = {
       title: e.target.elements.title.value,
       description: e.target.elements.description.value,
       date: e.target.elements.date.value,
       location: e.target.elements.location.value,
-      latitude: e.target.elements.latitude.value,
-      longitude: e.target.elements.longitude.value,
+      /*latitude: e.target.elements.latitude.value,
+      longitude: e.target.elements.longitude.value,*/
     };
-    setEventToDB(newEvent)
-      .then((eventData) => {
-        setEvent(eventData);
-        ///// setEvents muss noch ergänzed
-        // setEvents((prev) => [...prev, eventData]);
-
-        navigate("/");
+    getGeoLocation(e.target.elements.location.value)
+      .then((localData) => {
+        const latitudeData = localData[0].lat;
+        const longitudeData = localData[0].lon;
+        const newEvent = {
+          ...event,
+          latitude: latitudeData,
+          longitude: longitudeData,
+        };
+        setEventToDB(newEvent)
+          .then((eventData) => {
+            setEvent(eventData);
+            // setEvents muss noch ergänzed
+            // setEvents((prev) => [...prev, eventData]);
+            navigate("/");
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
       })
       .catch((error) => {
         console.error("Error:", error);
