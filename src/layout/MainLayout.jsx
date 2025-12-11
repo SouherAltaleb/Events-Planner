@@ -9,7 +9,7 @@ const MainLayout = () => {
   const { user, events, addEvent, signUpUser, signInUser } =
     useContext(EventContext);
   return (
-    <div className="container mx-auto">
+    <div className="mx-auto">
       <Header />
       <Outlet
         context={{
