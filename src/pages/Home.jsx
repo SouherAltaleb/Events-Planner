@@ -6,7 +6,7 @@ const Home = () => {
       {/* Hero Section */}
       <div className="hero-main relative h-full">
         <img
-          src="/hero-bild.png"
+          src="/hero-bild-2.png"
           alt="Hero"
           className="hero-img w-full object-cover md:h-screen"
         />

@@ -18,7 +18,7 @@ body,
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--color-light-beige-50);
-  padding-top: 100px;
+  padding-top: 60px;
   overflow-x: hidden;
 
   /* ich lasse das Bild zuerst */
@@ -112,6 +112,12 @@ h1 {
 /*--------- HEADER ----------*/
 
 /*--------- FOOTER ----------*/
+.footer {
+  background-image: url(footer.svg);
+  height: 100%;
+  color: #6d2e46;
+}
+
 /*--------- EVENT CARDS ----------*/
 /*--------- EVENT LIST ----------*/
 
