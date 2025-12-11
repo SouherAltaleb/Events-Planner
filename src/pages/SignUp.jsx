@@ -57,7 +57,7 @@ const SignUp = () => {
     <div className="mx-auto my-5 flex w-[96%] max-w-[1086px] flex-col items-center justify-between gap-4 rounded-2xl bg-white px-4 md:flex-row md:px-16">
       <div className="full-w flex items-center justify-center md:w-1/2">
         <img
-          src="celebrate.jpg"
+          src="celebrate.svg"
           width="100%"
           height="auto"
           alt="Sign in"
