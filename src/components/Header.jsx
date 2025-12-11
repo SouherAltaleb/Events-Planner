@@ -10,8 +10,8 @@ const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-white shadow-md">
-      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-8 py-4">
+    <header className="fixed inset-x-0 top-0 z-50 bg-white shadow-md">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* LEFT: Logo + Nav*/}
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-3">

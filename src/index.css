@@ -2,12 +2,25 @@
 @plugin "daisyui" {
   themes: false;
 }
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @import "leaflet/dist/leaflet.css";
 
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--color-light-beige-50);
   padding-top: 100px;
+  overflow-x: hidden;
+
   /* ich lasse das Bild zuerst */
   /* background-image: url(https://images.pexels.com/photos/9175911/pexels-photo-9175911.jpeg); */
 }
