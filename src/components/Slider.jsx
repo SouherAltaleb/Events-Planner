@@ -196,7 +196,7 @@ const Slider = () => {
                       navigate(`/events/${encodeURIComponent(event.title)}`)
                     }
                   >
-                    Details
+                    DETAILS
                   </button>
                 </div>
               </div>

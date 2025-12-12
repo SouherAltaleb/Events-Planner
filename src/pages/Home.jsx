@@ -23,15 +23,15 @@ const Home = () => {
           </h1>
 
           <p className="hero-main-text /* mobile */ /* desktop */ text-base md:text-xl">
-            Gestalte Erlebnisse ohne Grenzen <br />
-            flexibel, intuitiv und jederzeit.
+            Create experiences without limits <br />
+            Flexible, intuitive, and anytime
           </p>
 
           <button
             onClick={() => navigate(`/signup`)}
             className="hero-main-btn px-4 py-2 text-sm md:px-6 md:py-3 md:text-base"
           >
-            Get Started
+            GET STARTED
           </button>
         </div>
       </div>
