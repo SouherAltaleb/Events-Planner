@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white shadow-md">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <div className="max-w-8xl mx-auto flex w-full items-center justify-between px-6 py-4 lg:px-8">
         {/* LEFT: Logo + Nav*/}
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-3">
@@ -51,7 +51,9 @@ const Header = () => {
                     alt="User Icon"
                     className="h-8 w-8 rounded-full object-cover"
                   />
-                  <span className="hidden sm:inline">Hello, {user.email}</span>
+                  <span className="hidden sm:inline">
+                    Hello, {user.email.split("@")[0]}
+                  </span>
                 </Link>
 
                 <button
