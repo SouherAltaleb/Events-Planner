@@ -133,7 +133,7 @@ const UpdateUser = () => {
 
       {/* {error} */}
       {error && (
-        <div className="flex items-start gap-3 rounded-xl bg-red-100 p-4 text-(--color-alert) shadow-md">
+        <div className="mt-4 flex items-start gap-3 rounded-xl bg-red-100 p-4 text-(--color-alert) shadow-md">
           {/* Icon */}
           <svg
             className="mt-0.5 h-5 w-5 shrink-0"
