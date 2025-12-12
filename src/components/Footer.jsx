@@ -25,7 +25,7 @@ const Footer = () => {
 
         {/* logo */}
         <div className="sm:pt-6 lg:pt-30">
-          <img src="/logo.svg" alt="Logo" className="mb-4 w-32" />
+          <img src="logo.svg" alt="Logo" className="mb-4 w-32" />
           <p className="max-w-sm">
             Creating events that inspire, connect and empower communities.
           </p>

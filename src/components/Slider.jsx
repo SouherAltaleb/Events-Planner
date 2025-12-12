@@ -165,7 +165,7 @@ const Slider = () => {
                 }`}
               >
                 <img
-                  src="./logo-img.svg"
+                  src="logo-img.svg"
                   alt={event.title}
                   className={`rounded-xl object-cover shadow-lg transition-all duration-500 ${
                     i === current ? "block h-64 w-32" : "hidden"

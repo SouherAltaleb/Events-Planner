@@ -26,7 +26,7 @@ const UpcomingEvent = () => {
       {hasNoEvents ? (
         <div className="mt-10 flex flex-col items-center gap-4 text-center">
           {/* Icon */}
-          <img src="/logo.svg"></img>
+          <img src="logo.svg"></img>
 
           {/* Message */}
           <h2 className="text-xl font-semibold">
