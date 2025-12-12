@@ -152,7 +152,7 @@ const EventForm = () => {
             type="text"
             id="location"
             name="location"
-            placeholder="Location"
+            placeholder="Location (z.B Musterstrße 10, 12345 Berlin)"
             value={formData.location}
             onChange={handleChange}
             className={`input input-bordered w-full rounded-full bg-white shadow-md ${!validFields.location ? "error" : ""}`}
