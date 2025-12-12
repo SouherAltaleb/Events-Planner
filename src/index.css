@@ -131,7 +131,7 @@ h1 {
 /*--------- EVENT DETAIL ----------*/
 
 .eventDetail-container {
-  @apply grid grid-cols-1 items-start gap-6 px-10 pt-10 md:flex md:items-center;
+  @apply flex flex-col gap-6 px-10 pt-10 md:flex-row md:items-center;
 }
 
 .eventDetai-img-holder {
@@ -158,4 +158,8 @@ h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 2rem;
+}
+
+.leaflet-container {
+  z-index: 1;
 }
