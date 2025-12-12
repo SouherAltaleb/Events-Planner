@@ -16,7 +16,7 @@ const Header = () => {
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-3">
             {/* Logo */}
-            <img src="logo.svg" alt="Logo" className="w-32 object-contain" />
+            <img src="/logo.svg" alt="Logo" className="w-32 object-contain" />
           </Link>
 
           {/* nav */}
@@ -47,7 +47,7 @@ const Header = () => {
               <>
                 <Link to="/updateUser" className="flex items-center gap-2">
                   <img
-                    src="user.svg"
+                    src="/user.svg"
                     alt="User Icon"
                     className="h-8 w-8 rounded-full object-cover"
                   />

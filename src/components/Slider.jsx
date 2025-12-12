@@ -120,7 +120,7 @@ const Slider = () => {
     <section className="m-10">
       <div className="mx-auto mb-8 flex max-w-7xl items-end justify-between gap-8 px-5">
         <h1 className="text-2xl font-normal text-white lg:text-4xl">
-          See Our Five Next Events
+          Discover Upcoming Events
         </h1>
         <div className="flex gap-2">
           <button
@@ -148,10 +148,10 @@ const Slider = () => {
           {eventsList.map((event, i) => (
             <article
               key={event.id}
-              className={`relative flex-shrink-0 cursor-pointer rounded-xl transition-all duration-500 ease-in-out ${
+              className={`relative shrink-0 cursor-pointer rounded-xl transition-all duration-500 ease-in-out ${
                 i === current
-                  ? "basis-[30rem] -translate-y-1 shadow-2xl"
-                  : "basis-[5rem]"
+                  ? "basis-120 -translate-y-1 shadow-2xl"
+                  : "basis-20"
               } h-64 snap-start md:h-104`}
               onMouseEnter={() =>
                 window.matchMedia("(hover:hover)").matches && activateCard(i)
@@ -160,14 +160,14 @@ const Slider = () => {
             >
               <div className="bg-[--color-light-beige-50]" />
               <div
-                className={`absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 bg-white p-0 ${
+                className={`absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 rounded-2xl bg-white p-0 ${
                   i === current ? "flex-row gap-4 p-5" : "flex-col"
                 }`}
               >
                 <img
                   src="./logo-img.svg"
                   alt={event.title}
-                  className={`rounded-md object-cover shadow-lg transition-all duration-500 ${
+                  className={`rounded-xl object-cover shadow-lg transition-all duration-500 ${
                     i === current ? "block h-64 w-32" : "hidden"
                   }`}
                 />
