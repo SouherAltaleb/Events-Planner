@@ -71,13 +71,13 @@ const SignUp = () => {
         />
       </div>
       <div className="full-w md:w-1/2">
-        {error}
         <h1 className="mb-5 text-2xl uppercase">Sign Up</h1>
         <form
           method="post"
           onSubmit={handleSubmit}
           className="full-w flex flex-col gap-4"
         >
+          {/* Email */}
           <label htmlFor="email" className="sr-only">
             Email
           </label>
@@ -90,6 +90,8 @@ const SignUp = () => {
             onChange={handleChange}
             className={`input input-border shadow-2xm w-full rounded-full border-(--color-primary) bg-white shadow-md ${!validFields.email ? "error" : ""} hover:border-2`}
           />
+
+          {/* Password */}
           <label htmlFor="password" className="sr-only">
             Password
           </label>
@@ -102,12 +104,45 @@ const SignUp = () => {
             onChange={handleChange}
             className={`input input-border shadow-2xm w-full rounded-full border-(--color-primary) bg-white shadow-md ${!validFields.password ? "error" : ""} hover:border-2`}
           />
+
+          {/* Button */}
           <button
             type="submit"
             className="btn mt-2 mb-4 w-full rounded-full border-0 bg-(--color-primary) text-white shadow-md hover:bg-(--color-secondary) md:mb-0"
           >
             Sign up
           </button>
+
+          {/* {error} */}
+          {error && (
+            <div className="flex items-start gap-3 rounded-xl bg-red-100 p-4 text-(--color-alert) shadow-md">
+              {/* Icon */}
+              <svg
+                className="mt-0.5 h-5 w-5 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 9v3m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+              </svg>
+
+              {/* Error Text */}
+              <span className="text-sm font-medium">{error}</span>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setError(null)}
+                className="ml-auto text-(--color-alert) hover:text-(--color-alert)"
+              >
+                ✕
+              </button>
+            </div>
+          )}
         </form>
       </div>
     </div>
