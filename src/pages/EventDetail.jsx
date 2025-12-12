@@ -34,19 +34,18 @@ const EventDetail = () => {
   }).format(new Date(event.date));
 
   return (
-    <div className="eventDetail-container pt-20">
+    <div className="eventDetail-container">
       {/* Image Section */}
       <figure className="eventDetai-img-holder">
         {/* Use absolute path for images in public folder */}
         <img
-          className="eventDetail-img max-w-100"
-          src="/party.svg"
+          className="eventDetail-img"
+          src="/details-event-bild.svg"
           alt="celebrate"
         />
       </figure>
-
       {/* Content Section */}
-      <div className="event-content">
+      <div className="event-content md:w-3xl">
         <h1 className="eventDetai-title"> {event.title}</h1>
         <p>{formattedDate}</p>
 
@@ -61,6 +60,7 @@ const EventDetail = () => {
         >
           BACK
         </button>
+
         {/* Map Section */}
         <div className="map-wrapper">
           {/* MapContainer renders the map UI */}

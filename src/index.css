@@ -131,15 +131,15 @@ h1 {
 /*--------- EVENT DETAIL ----------*/
 
 .eventDetail-container {
-  @apply grid grid-cols-1 items-start gap-6 md:grid-cols-2;
+  @apply grid grid-cols-1 items-start gap-6 px-10 pt-10 md:flex md:items-center;
 }
 
 .eventDetai-img-holder {
-  @apply w-full;
+  @apply w-full md:w-xl;
 }
 
 .eventDetail-img {
-  @apply h-auto w-full rounded-lg object-cover shadow-lg;
+  @apply h-auto w-full max-w-100 rounded-lg object-cover;
 }
 
 .map-wrapper {
