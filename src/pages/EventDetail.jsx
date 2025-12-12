@@ -7,6 +7,7 @@ import { useOutletContext, useParams } from "react-router";
 // Fix for missing default Leaflet marker icons
 const defaultIcon = new L.Icon({
   iconUrl: new URL("/marker-icon.png", import.meta.url).href,
+  iconRetinaUrl: new URL("/marker-icon-2x.png", import.meta.url).href,
   shadowUrl: new URL("/marker-shadow.png", import.meta.url).href,
 });
 
