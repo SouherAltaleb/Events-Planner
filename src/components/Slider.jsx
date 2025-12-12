@@ -148,10 +148,10 @@ const Slider = () => {
           {eventsList.map((event, i) => (
             <article
               key={event.id}
-              className={`relative flex-shrink-0 cursor-pointer rounded-xl transition-all duration-500 ease-in-out ${
+              className={`relative shrink-0 cursor-pointer rounded-xl transition-all duration-500 ease-in-out ${
                 i === current
-                  ? "basis-[30rem] -translate-y-1 shadow-2xl"
-                  : "basis-[5rem]"
+                  ? "basis-120 -translate-y-1 shadow-2xl"
+                  : "basis-20"
               } h-64 snap-start md:h-104`}
               onMouseEnter={() =>
                 window.matchMedia("(hover:hover)").matches && activateCard(i)

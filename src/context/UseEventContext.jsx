@@ -174,10 +174,12 @@ const EventContextProvider = ({ children }) => {
       console.error("Failed to load events:", err);
     }
   };
-
+  // Reload upcoming events whenever events change
   useEffect(() => {
-    loadUpcomingEvents();
-  }, []);
+    if (events) {
+      loadUpcomingEvents();
+    }
+  }, [events]);
 
   // Event speichern (mit Token)
   const addEvent = (e) => {

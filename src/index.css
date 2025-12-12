@@ -114,7 +114,7 @@ h1 {
 
 /*--------- FOOTER ----------*/
 .footer {
-  background-image: url(footer.svg);
+  background-image: url(/footer.svg);
   height: 100%;
   color: #6d2e46;
 }
